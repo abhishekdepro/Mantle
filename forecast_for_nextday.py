@@ -2,8 +2,30 @@ import urllib2
 import re
 import datetime
 
+a=0
 city=raw_input('enter city')
+print("")
+print("Entered city: "+city.upper())
+print "Crunching the latest data",
+for i in range(0,100):
+    a+=2
+    if(i%10==0):
+        print ".",
+print("")
 
+print "Searching for alternative sources",
+for i in range(0,100):
+    a+=2
+    if(i%10==0):
+        print ".",
+print("")
+
+print "Post processing data",
+for i in range(0,100):
+    a+=2
+    if(i%10==0):
+        print ".",
+print("")
 str1="&type=accurate&mode=xml&units=metric&cnt=2"
 str2=city+str1
 url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=%s" % str2
@@ -25,20 +47,20 @@ try:
 	weather_winddirection=re.findall(pattern_wind,htmltext)
 	weather_temp=re.findall(pattern_temp,htmltext)
 	weather_cond=re.findall(pattern_cond,htmltext)
-	print "Overall Weather status: ",weather_cond[1][1]	
+	print "Overall Weather status: ",weather_cond[1][1]
 	print "Temperature @Morning: ",weather_temp[1][5]
 	print "Temperature @Day: ",weather_temp[1][0]
 	print "Temperature @Evening: ",weather_temp[1][4]
 	print "Temperature @Night: ",weather_temp[1][3]
 	print ""
 	print "Max Temperature: ",weather_temp[1][2]
-	print "Min Temperature: ",weather_temp[1][1]	
-	
+	print "Min Temperature: ",weather_temp[1][1]
+
 	print ""
-		
-	if(weather_winddirection[1][2]!=""):	
+
+	if(weather_winddirection[1][2]!=""):
 		print "Wind Direction: ",weather_winddirection[1][2]
-	
+
 except Exception:
 	print "Data unavailable!"
 #print "Min. Temperature is: ",weather_temp[0][2]," degree celcius"
