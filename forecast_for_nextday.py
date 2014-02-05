@@ -64,7 +64,7 @@ try:
 	
 	cnxn = pyodbc.connect(r'Driver={SQL Server Native Client 10.0};Server=tcp:isrfcmkk4i.database.windows.net,1433;Database=mantle;Uid=abhishek@isrfcmkk4i;Pwd={v0d@f0ne};Encrypt=yes;Connection Timeout=30;')
 	cursor = cnxn.cursor()
-	cursor.execute( c.execute("SELECT * FROM WEATHER");
+	cursor.execute( c.execute("SELECT * FROM WEATHER"));
 	
 	cnxn.close()
 except Exception:
