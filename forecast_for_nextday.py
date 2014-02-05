@@ -1,7 +1,7 @@
 import urllib2
 import re
 import datetime
-import sqlite3
+import pyodbc
 
 a=0
 city=raw_input('enter city')
@@ -62,17 +62,11 @@ try:
 	if(weather_winddirection[1][2]!=""):
 		print "Wind Direction: ",weather_winddirection[1][2]
 	
-	conn = sqlite3.connect('weather_forecast.db')
-
-	c = conn.cursor()
-
-	# Insert a row of data
-	c.execute("INSERT INTO data VALUES (?,?,?,?,?,?,?,?)", (city,weather_temp[1][5], weather_temp[1][0], weather_temp[1][4], weather_temp[1][3], weather_temp[1][2], weather_temp[1][1], weather_cond[1][1]))
-	# Save (commit) the changes
-	conn.commit()
-	# We can also close the connection if we are done with it.
-	# Just be sure any changes have been committed or they will be lost.
-	conn.close()
+	cnxn = pyodbc.connect(r'Driver={SQL Server Native Client 10.0};Server=tcp:isrfcmkk4i.database.windows.net,1433;Database=mantle;Uid=abhishek@isrfcmkk4i;Pwd={v0d@f0ne};Encrypt=yes;Connection Timeout=30;')
+	cursor = cnxn.cursor()
+	cursor.execute( c.execute("SELECT * FROM WEATHER");
+	
+	cnxn.close()
 except Exception:
 	print "Data unavailable!"
 #print "Min. Temperature is: ",weather_temp[0][2]," degree celcius"
