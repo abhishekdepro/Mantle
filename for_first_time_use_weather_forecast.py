@@ -32,8 +32,8 @@ weather_condition=re.findall(pattern1,htmltext)
 print "Temperature is: ",weather_temp[0]," degree celcius"
 print "Weather Condition is : ",weather_condition[0]
 #for first time used
-conn = sqlite3.connect(':memory:')
-conn = sqlite3.connect("D://Programming/weather_forecast.db")
+#conn = sqlite3.connect(':memory:')
+conn = sqlite3.connect('weather_forecast.db')
 
 c = conn.cursor()
 
