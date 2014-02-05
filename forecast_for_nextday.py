@@ -67,7 +67,7 @@ try:
 	c = conn.cursor()
 
 	# Insert a row of data
-	c.execute("INSERT INTO data VALUES (?,?,?,?,?)", (city,weather_temp[1][5], weather_temp[1][0], weather_temp[1][4], weather_temp[1][3], weather_temp[1][2], weather_temp[1][1], weather_cond[1][1]))
+	c.execute("INSERT INTO data VALUES (?,?,?,?,?,?,?,?)", (city,weather_temp[1][5], weather_temp[1][0], weather_temp[1][4], weather_temp[1][3], weather_temp[1][2], weather_temp[1][1], weather_cond[1][1]))
 	# Save (commit) the changes
 	conn.commit()
 	# We can also close the connection if we are done with it.
