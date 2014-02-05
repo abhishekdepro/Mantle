@@ -11,7 +11,8 @@ htmltext=source.read()
 print("<------------------------WEATHER REPORT: "+city.upper()+"--------------------------->")
 
 # search for pattern using regular expressions (.+?)
-temperature='<span class="nobr"><span class="b">(.+?)</span>&nbsp;&deg;C</span>'
+temperature='<span class="nobr"><span class="b">(.+?)</span>&nbsp;°C</span>'
+
 condition='<div id="curCond">(.+?)</div>'
 pattern=re.compile(temperature)
 pattern1=re.compile(condition)
