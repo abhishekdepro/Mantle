@@ -21,7 +21,7 @@ htmltext=source.read()
 print("<------------------------WEATHER REPORT: "+city.upper()+"--------------------------->")
 
 # search for pattern using regular expressions (.+?)
-temperature='<span class="nobr"><span class="b">(.+?)</span>&nbsp;°C</span>'
+temperature='<span class="nobr"><span class="b">(.+?)</span>&nbsp;&deg;C</span>'
 condition='<div id="curCond">(.+?)</div>'
 pattern=re.compile(temperature)
 pattern1=re.compile(condition)
@@ -32,8 +32,8 @@ weather_condition=re.findall(pattern1,htmltext)
 print "Temperature is: ",weather_temp[0]," degree celcius"
 print "Weather Condition is : ",weather_condition[0]
 #for first time used
-#conn = sqlite3.connect(':memory:')
-conn = sqlite3.connect('weather_forecast.db')
+conn = sqlite3.connect(':memory:')
+conn = sqlite3.connect("D://Programming/weather_forecast.db")
 
 c = conn.cursor()
 

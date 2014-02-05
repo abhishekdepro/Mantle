@@ -7,7 +7,7 @@ a=0
 city=raw_input('enter city')
 print("")
 print("Entered city: "+city.upper())
-print "Crunching the latest data",
+print("Crunching the latest data")
 for i in range(0,100):
     a+=2
     if(i%10==0):
