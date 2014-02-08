@@ -32,16 +32,10 @@ weather_condition=re.findall(pattern1,htmltext)
 print "Temperature is: ",weather_temp[0]," degree celcius"
 print "Weather Condition is : ",weather_condition[0]
 #for first time used
-conn = sqlite3.connect(':memory:')
-conn = sqlite3.connect("D://Programming/weather_forecast.db")
-
-c = conn.cursor()
 
 
-# Insert a row of data
-c.execute("INSERT INTO data VALUES (?,?,?)", (city,weather_temp[0], weather_condition[0]))
-# Save (commit) the changes
-conn.commit()
+
+
 # We can also close the connection if we are done with it.
 # Just be sure any changes have been committed or they will be lost.
-conn.close()
+# conn.close()
