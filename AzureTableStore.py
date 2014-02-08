@@ -92,28 +92,28 @@ while(1):
         # match pattern with htmltext for weather-forecast
         #weather_tempwf=re.findall(patternwf,htmlwf)
 
-        a=int(weather_temp[0])
+        #a=int(weather_temp[0])
         b=int(weather_tempbing[0])
         c=int(weather_tempask[0])
-        #d=int(weather_tempch10[0])
+        d=int(weather_tempch10[0])
         #e=int(weather_tempwf[0])
-        mean=a+b+c
+        mean=b+c+d
 
         mean=mean/3
 
-        a=a-mean
+        #a=a-mean
         b=b-mean
         c=c-mean
-        #d=d-mean
+        d=d-mean
         #e=e-mean
 
-        a=math.pow(a,2)
+        #a=math.pow(a,2)
         b=math.pow(b,2)
         c=math.pow(c,2)
-        #d=math.pow(d,2)
+        d=math.pow(d,2)
         #e=math.pow(e,2)
 
-        sd=a+b+c
+        sd=b+c+d
         sd=sd/3
         sd=math.sqrt(sd)
 
