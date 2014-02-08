@@ -141,15 +141,26 @@ while(1):
         print "Temperature in SD form ",sd,"degree celcius"
 
         count=1
-        
+        flag=0
+        key=datetime.datetime.now().strftime("%d%m%Y%H%M")
 
         # store in WeatherFetch Table Storage in Azure
+        tasks = table_service.query_entities('WeatherFetch', "PartitionKey eq 'data'")
+        for task in tasks:
+            if (task.RowKey==key or task.sd==sd):
+                print task.sd
+                flag=1
+                break
 
-        
-        key=datetime.datetime.now().strftime("%d%m%Y%H%M")
-        fetched_data = {'PartitionKey': 'data', 'RowKey': key, 'weather_wunder' : weather_temp[0], 'weather_bing' : weather_tempbing[0],'weather_ask':weather_tempask[0], 'sd':sd}
-        table_service.insert_entity('WeatherFetch', fetched_data)
+        if flag==1:
+            print 'Piol'
+        else:
+            fetched_data = {'PartitionKey': 'data', 'RowKey': key, 'weather_wunder' : weather_temp[0], 'weather_bing' : weather_tempbing[0],'weather_ask':weather_tempask[0], 'sd':sd}
+            table_service.insert_entity('WeatherFetch', fetched_data)
+            
 
         count=count+1
+        
+        
 
     #minute=minute+1
